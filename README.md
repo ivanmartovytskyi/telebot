@@ -33,4 +33,4 @@ Telegram url: [Telebot](https://t.me/ivanmartovytskyi_telebot).
 
 # Usage
 ## Type following command in telebot:
-> /start <your_message>
+> /start hello
