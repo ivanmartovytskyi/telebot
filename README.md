@@ -1,8 +1,16 @@
 # Telebot Version 1.0.2
 
+Telegram url: [Telebot](https://t.me/ivanmartovytskyi_telebot).
+
+# Installation
+
+## Create your bot in telegram [BotFather](https://t.me/BotFather) service
+
 ## Add Telegram bot API token to env var:
+
 ### Windows:
 > setx TELE_TOKEN "<your_api_key>"
+
 ### Linux:
 > export TELE_TOKEN=<your_api_key>
 
@@ -16,7 +24,13 @@
 > go build -ldflags "-X 'github.com/ivanmartovytskyi/telebot/cmd.appVersion=v1.0.2'"
 
 ## Run bot:
+
 ### Windows:
 > telebot.exe start
+
 ### Linux:
 > telebot start> telebot start
+
+# Usage
+## Type following command in telebot:
+> /start <your_message>
