@@ -30,18 +30,15 @@ get:
 
 set_linux_env:
 	$(eval GOOS=linux)
-	$(eval TARGET_FILE=telebot)
 
 set_windows_env:
 	$(eval GOOS=windows)
-	$(eval TARGET_FILE=telebot.exe)
 
 set_macOs_env:
 	$(eval GOOS=darwin)
-	$(eval TARGET_FILE=telebot)
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH} --build-arg TARGETSYSTEM=${GOOS} --build-arg ENTRYPOINT=${TARGET_FILE}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH} --build-arg TARGETSYSTEM=${GOOS}
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
