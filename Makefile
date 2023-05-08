@@ -6,6 +6,9 @@ TARGET_FILE=telebot
 ARCHITECTURE=$(shell dpkg --print-architecture)
 TARGETARCH=amd4
 
+build: setenv format get
+	go build -o telebot -v -ldflags "-X 'github.com/ivanmartovytskyi/telebot/cmd.appVersion=${VERSION}'"
+
 format:
 	gofmt -s -w ./
 
@@ -22,9 +25,6 @@ setenv:
 	CGO_ENABLED=0
 	GOOS=${TARGETOS}
 	GOARCH=${TARGETARCH}
-
-build: setenv format get
-	go build -o telebot -v -ldflags "-X 'github.com/ivanmartovytskyi/telebot/cmd.appVersion=${VERSION}'"
 
 image:
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
