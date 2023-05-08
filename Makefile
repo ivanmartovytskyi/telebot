@@ -1,13 +1,19 @@
+REGISTRY=cloud.canister.io:5000/ivanmartovytskyi
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=ivanmartovytskyi
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-TARGETOS=linux
+TARGETARCH=amd64
 TARGET_FILE=telebot
-ARCHITECTURE=$(shell dpkg --print-architecture)
-TARGETARCH=amd4
 
-build: setenv format get
-	go build -o telebot -v -ldflags "-X 'github.com/ivanmartovytskyi/telebot/cmd.appVersion=${VERSION}'"
+linux: set_linux_env build
+windows: set_windows_env build
+darwin: set_macOs_env build
+
+linux_image: set_linux_env image
+windows_image: set_windows_env image
+darwin_image: set_macOs_env image
+
+build: format get
+	CGO_ENABLED=0 GOARCH=${TARGETARCH} go build -o ${TARGET_FILE} -v -ldflags "-X '${REGISTRY}/telebot/cmd.appVersion=${VERSION}'"
 
 format:
 	gofmt -s -w ./
@@ -21,16 +27,23 @@ test:
 get:
 	go get
 
-setenv:
-	CGO_ENABLED=0
-	GOOS=${TARGETOS}
-	GOARCH=${TARGETARCH}
+set_linux_env:
+	GOOS=linux
+	TARGET_FILE=telebot
+
+set_windows_env:
+	GOOS=windows
+	TARGET_FILE=telebot.exe
+
+set_macOs_env:
+	GOOS=darwin
+	TARGET_FILE=telebot
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH} --build-arg TARGETSYSTEM=${GOOS} --build-arg ENTRYPOINT=${TARGET_FILE}
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
-	rm -rf telebot
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
