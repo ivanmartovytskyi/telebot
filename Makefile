@@ -33,7 +33,7 @@ set_linux_env:
 	$(eval TARGET_FILE=telebot)
 
 set_windows_env:
-	$(eval GOOS=linux)
+	$(eval GOOS=windows)
 	$(eval TARGET_FILE=telebot.exe)
 
 set_macOs_env:
