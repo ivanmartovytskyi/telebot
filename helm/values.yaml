@@ -13,3 +13,5 @@ secret:
   name: "telebot"
   env: "TELE_TOKEN"
   key: "token"
+securityContext:
+  privileged: true
