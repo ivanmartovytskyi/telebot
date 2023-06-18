@@ -38,10 +38,10 @@ set_macOs_env:
 	$(eval GOOS=darwin)
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH} --build-arg TARGETSYSTEM=${GOOS}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${GOOS}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH} --build-arg TARGETSYSTEM=${GOOS}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY}/${APP}:${VERSION}-${GOOS}-${TARGETARCH}
 
 clean:
-	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${GOOS}-${TARGETARCH}
