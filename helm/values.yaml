@@ -5,9 +5,9 @@
 replicaCount: 1
 image:
   repository: "ivanmartovytskyi"
-  tag: "v1.0.6-6927e71"
+  tag: "v1.0.6-34f98df"
   arch: "amd64"
-  os: "linux"
+  os: ""
 secret:
   name: "telebot"
   env: "TELE_TOKEN"
