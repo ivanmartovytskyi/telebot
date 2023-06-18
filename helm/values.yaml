@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   registry: "ghcr.io"
-  repository: "ivanmartovytskyi/telebot"
+  repository: "ivanmartovytskyi"
   tag: "v1.0.6-309dd54"
   arch: "amd64"
   os: "linux"
