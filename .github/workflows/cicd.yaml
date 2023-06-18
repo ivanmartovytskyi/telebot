@@ -2,6 +2,9 @@ name: TELEBOT-CICD
 
 on: push
 
+permissions:
+  contents: write
+
 env:
   TARGETARCH: amd64
   
