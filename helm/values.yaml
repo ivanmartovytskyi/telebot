@@ -6,7 +6,7 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "ivanmartovytskyi/telebot"
-  tag: "v1.0.6-4cbb10d"
+  tag: "v1.0.6-8b019d8"
   arch: "amd64"
   os: "linux"
 secret:
