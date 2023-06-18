@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: "ivanmartovytskyi"
-  tag: "v1.0.6-324de30"
+  tag: "v1.0.6-840e598 / echo OS=linux"
   arch: "amd64"
   os: ""
 secret:
