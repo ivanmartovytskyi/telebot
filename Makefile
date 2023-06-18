@@ -1,4 +1,4 @@
-REGISTRY=cloud.canister.io:5000/ivanmartovytskyi
+REGISTRY=ghcr.io/ivanmartovytskyi
 APP=$(shell basename $(shell git remote get-url origin))
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETARCH=amd64
