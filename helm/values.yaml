@@ -6,10 +6,12 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "ivanmartovytskyi/telebot"
-  tag: "v1.0.6-01bf0ec"
+  tag: "v1.0.6-309dd54"
   arch: "amd64"
   os: "linux"
 secret:
   name: "telebot"
   env: "TELE_TOKEN"
   key: "token"
+securityContext:
+  privileged: true
