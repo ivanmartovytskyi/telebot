@@ -38,8 +38,9 @@ Type following command in telegram telebot:
 
 # Deploy
 
-export TF_VAR_GITHUB_OWNER=<your-github-login>
-export TF_VAR_GITHUB_TOKEN=<your-github-token-with-repo-creation-rights>
+export TF_VAR_GITHUB_OWNER=`<your-github-login>`
+
+export TF_VAR_GITHUB_TOKEN=`<your-github-token-with-repo-creation-rights>`
 
 ## Local test
 
@@ -50,3 +51,16 @@ Rename main.tf.local to main.tf
 ## Run 
 > terraform init
 > terraform apply
+
+# Note
+This project uses forks of terraform modules made by [Denys Vasyliev](https://github.com/den-vasyliev):
+
+[tf-fluxcd-flux-bootstrap](https://github.com/den-vasyliev/tf-fluxcd-flux-bootstrap)
+
+[tf-google-gke-cluster](https://github.com/den-vasyliev/tf-google-gke-cluster)
+
+[tf-hashicorp-tls-keys](https://github.com/den-vasyliev/tf-hashicorp-tls-keys)
+
+[tf-kind-cluster](https://github.com/den-vasyliev/tf-kind-cluster)
+
+[tf-github-repository](https://github.com/den-vasyliev/tf-github-repository)
