@@ -49,7 +49,9 @@ Make sure terraform is installed on your system
 Rename main.tf.local to main.tf
 
 ## Run 
+
 > terraform init
+
 > terraform apply
 
 # Note
