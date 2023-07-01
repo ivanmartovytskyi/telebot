@@ -35,3 +35,18 @@ Run bot:
 
 Type following command in telegram telebot:
 > /start hello
+
+# Deploy
+
+export TF_VAR_GITHUB_OWNER=<your-github-login>
+export TF_VAR_GITHUB_TOKEN=<your-github-token-with-repo-creation-rights>
+
+## Local test
+
+Make sure terraform is installed on your system
+
+Rename main.tf.local to main.tf
+
+## Run 
+> terraform init
+> terraform apply
